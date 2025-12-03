@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prestige assurance - Assurance Auto & Mutuelle</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* --- Custom Styles & French Flag Theme --- */
+        :root {
+            --fr-blue: rgba(32, 121, 55);
+            --fr-white: #ffffff;
+            --fr-red: black;
+            --dark-blue: black;
+            --bg-light: #f4f6f9;
+            --text-dark: #333;
+            --text-grey: #666;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Top Flag Strip */
+        .top-flag-strip {
+            height: 4px;
+            background: linear-gradient(90deg, var(--fr-blue) 33%, var(--fr-white) 33%, var(--fr-white) 66%, var(--fr-red) 66%);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #f8f9fa;
+            font-size: 0.9rem;
+            padding: 10px 0;
+        }
+        .top-bar a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        .top-bar a:hover {
+            color: var(--fr-blue);
+        }
+        .btn-tous-produits {
+            background-color: var(--fr-blue);
+            color: white !important;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .top-phone {
+            color: var(--fr-blue);
+            font-weight: 700;
+        }
+
+        /* Main Header */
+        .main-header {
+            padding: 20px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-img {
+            width: 120px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--fr-blue);
+            line-height: 1;
+        }
+        .logo-subtext {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+        }
+        .header-contact {
+            display: flex;
+            align-items: center;
+            color: var(--fr-blue);
+        }
+        .header-phone {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .btn-custom-blue {
+            background-color: var(--fr-blue);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 10px 20px;
+    
+            transition: all 0.3s;
+        }
+        .btn-custom-blue:hover {
+            background-color: var(--dark-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .btn-custom-red {
+            background-color: var(--fr-red);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 10px 20px;
+            transition: all 0.3s;
+        }
+        .btn-custom-red:hover {
+            background-color: whitesmoke;
+            color: black;
+            border : solid black 2px  ; 
+            transform: translateY(-2px);
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: var(--fr-blue);
+            padding: 0;
+        }
+        .navbar-custom .nav-link {
+            color: white !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 15px 20px !important;
+            transition: background-color 0.3s;
+        }
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-item.show .nav-link {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .dropdown-menu {
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .dropdown-item {
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+        .dropdown-item:hover {
+            background-color: var(--bg-light);
+            color: var(--fr-blue);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 600px;
+            /* Placeholder for a relevant image from the prompt, e.g., Auto Insurance */
+            background: url('image_b3f33c.png') no-repeat center center/cover; 
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Blending colors from image_2b901d.png */
+            background: linear-gradient(to bottom, rgba(32, 121, 55, 0.8), rgba(126, 172, 59, 0.6), rgba(162, 210, 50, 0.3));
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--fr-blue);
+            margin-bottom: 30px;
+        }
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-grey);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        .address-box {
+            font-weight: 600;
+            color: var(--fr-blue);
+        }
+
+        /* Partnerships Section */
+        .partners-section {
+            padding: 50px 0;
+            background-color: var(--bg-light);
+        }
+        .partner-logo {
+            max-width: 80px;
+            height: auto;
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 0;
+        }
+        .product-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .product-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+        /* Specific Product Backgrounds (from image_b45879.jpg) */
+        .product-bg-moto { background-image: url('image_b45879.jpg'); background-position: top center; } 
+        .product-bg-habitation { background-image: url('image_b45879.jpg'); background-position: right center; } 
+        .product-bg-sante { background-image: url('image_b45879.jpg'); background-position: left center; } 
+        .product-bg-international { background-image: url('image_b45879.jpg'); background-position: bottom right; }
+        .product-bg-rc { background-image: url('image_b45879.jpg'); background-position: bottom left; } 
+        .product-bg-pro { background-image: url('image_b45879.jpg'); background-position: bottom center; } 
+        
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(21, 21, 21, 0.5); /* Semi-transparent dark overlay */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            border: solid black 2px;
+            padding: 30px;
+            transition: background 0.3s;
+        }
+        .product-card:hover .product-bg {
+            transform: scale(1.1);
+        }
+        .product-card:hover .product-overlay {
+            background: rgba(32, 121, 55, 0.8); /* Green overlay on hover */
+        }
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .btn-en-savoir-plus {
+            margin-top: 20px;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-en-savoir-plus:hover {
+            background-color: white;
+            color: var(--fr-blue);
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .form-control, .form-select {
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            margin-bottom: 20px;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--fr-blue);
+            box-shadow: 0 0 0 0.25rem rgba(0, 85, 164, 0.25);
+        }
+        /* Custom styles for the DEVIS GRATUIT form from image_b3f2bd.png */
+        .devis-form h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        .devis-form p {
+            margin-bottom: 30px;
+        }
+        .info-souscripteur {
+            color: var(--fr-red); /* Using fr-red for the orange-like color in the screenshot */
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--fr-red);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Info & Reviews Section */
+        .info-reviews-section {
+            padding: 80px 0;
+        }
+        .contact-box {
+            background-color: var(--fr-blue);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .contact-box h3 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .contact-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .reviews-box {
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            height: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #222;
+            color: #bbb;
+            padding: 80px 0 30px;
+        }
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .footer h4 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--fr-red);
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer ul li {
+            margin-bottom: 15px;
+        }
+        .footer ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer ul li a:hover {
+            color: white;
+        }
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .footer-contact-item i {
+            color: var(--fr-red);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* --- Animations --- */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-flag-strip"></div>
+
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-none d-md-block">
+                <a href="#">À PROPOS DE NOUS</a>
+                <a href="#">ACTUALITÉS</a>
+                <a href="#" class="btn-tous-produits">TOUS NOS PRODUITS</a>
+            </div>
+            <div class="d-flex align-items-center">
+                <i class="fas fa-phone-alt me-2 top-phone"></i>
+                <div>
+                    <div class="top-phone">+ 33 7 85 06 42 44</div>
+                    <small>Appelez-nous</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo-container">
+                <img src="/prv/assets/logo.png" alt="prestige assurance" class="logo-img"> 
+                <div>
+                    <div class="logo-text">prestige assurance</div>
+                    <div class="logo-subtext">ASSURANCES TOUJOURS À VOS CÔTÉS</div>
+                </div>
+            </div>
+            <div class="d-flex gap-3">
+                <a href="#devis-section" class="btn btn-custom-red d-none d-sm-block">DEMANDEZ UN DEVIS</a>
+            </div>
+        </div>
+        <a style="margin:20px ;" href="#" class="btn btn-custom-blue">Payez en ligne</a>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <button style="margin: 10px;color: #ced4da;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/public/HomE.html">Accueil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Particulier
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                            <li><a class="dropdown-item" href="#">Assurance Auto</a></li>
+                            <li><a class="dropdown-item" href="#">Moto / Scooter</a></li>
+                            <li><a class="dropdown-item" href="#">Habitation</a></li>
+                            <li><a class="dropdown-item" href="#">Santé</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Professionnel
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <li><a class="dropdown-item" href="#">RC Pro</a></li>
+                            <li><a class="dropdown-item" href="#">Multirisque Pro</a></li>
+                            <li><a class="dropdown-item" href="#">Flotte Auto</a></li>
+                            <li><a class="dropdown-item" href="#">Santé Collective</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Changement Carte Grise</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Nous Contacter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section text-center">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="hero-title fade-in-up">Assurance Auto Annuelle</h1>
+                    <p class="hero-subtitle fade-in-up" style="font-size: 1.8rem; font-weight: 500;">
+                        Vous souhaitez assurer votre voiture ? Permis Français/UE ou étranger possible
+                    </p>
+                    <a href="#devis-section" class="btn btn-custom-red btn-lg fade-in-up">DEMANDEZ UN DEVIS GRATUIT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="contact-section" id="devis-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                
+                <div class="col-lg-6 mb-5 mb-lg-0 fade-in-up">
+                    <div class="contact-form devis-form p-5">
+                        <h2 class="text-start">DEVIS GRATUIT</h2>
+                        <p class="text-start">Remplissez en deux minutes le formulaire ci-dessous et nous vous appelons dans les plus brefs délais pour vous présenter nos offres.</p>
+
+                        <form action="#" method="POST">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="date_acquisition">Date d'acquisition du véhicule</label>
+                                    <input type="text" id="date_acquisition" class="form-control" placeholder="mm/dd/yyyy">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="d-block mt-3">Le véhicule est-il actuellement assuré ?</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="assure_actuellement" id="assure_oui" value="oui">
+                                        <label class="form-check-label" for="assure_oui">Oui</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="assure_actuellement" id="assure_non" value="non" checked>
+                                        <label class="form-check-label" for="assure_non">Non</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <select class="form-select" required>
+                                        <option value="">Marque du véhicule :*</option>
+                                        <option value="audi">Audi</option>
+                                        <option value="bmw">BMW</option>
+                                        <option value="renault">Renault</option>
+                                        </select>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Numéro d'immatriculation :*" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-select" required>
+                                        <option value="">Usage prévu du véhicule*</option>
+                                        <option value="perso">Personnel</option>
+                                        <option value="pro">Professionnel</option>
+                                        </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <select class="form-select" required>
+                                        <option value="">Qui est titulaire de la carte grise*</option>
+                                        <option value="moi">Moi-même</option>
+                                        <option value="autre">Autre personne</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <select class="form-select" required>
+                                        <option value="">Qui est le Conducteur du véhicule*</option>
+                                        <option value="moi">Moi-même</option>
+                                        <option value="autre">Autre personne</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <h4 class="info-souscripteur">Informations Souscripteur</h4>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="d-block">Civilité</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="civilite" id="monsieur" value="Monsieur" checked>
+                                        <label class="form-check-label" for="monsieur">Monsieur</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="civilite" id="madame" value="Madame">
+                                        <label class="form-check-label" for="madame">Madame</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Votre nom*" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Prénom*" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Code Postal de Résidence*" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="email" class="form-control" placeholder="Votre email*" required>
+                                    <small class="form-text text-muted">Doit être une adresse e-mail valide</small>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="tel" class="form-control" placeholder="Téléphone Mobile">
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="confidentialite" required>
+                                        <label class="form-check-label" for="confidentialite">
+                                            J'accepte la <a href="#" class="text-decoration-none" style="color: var(--fr-blue); font-weight: 500;">Politique de confidentialité</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-custom-red w-100 btn-lg mt-3">ENVOYER</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 fade-in-up">
+                    <h2 class="section-title text-start">Comment choisir la bonne assurance pour mon véhicule?</h2>
+                    <ul class="list-unstyled text-start fs-5">
+                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--fr-blue);"></i> Jeune conducteur / Sans antécédents</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--fr-blue);"></i> Résiliation non-paiement / Sinistre malussés</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--fr-blue);"></i> Retrait du permis / Alcoolémie</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--fr-blue);"></i> Permis Européen ou étranger</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--fr-blue);"></i> Bon conducteur avec expérience</li>
+                    </ul>
+
+                    <p class="mt-4">Le Cabinet **prestige assurance** vous résout toutes vos problèmes auto.</p>
+                    <p>Grâce à nous au minimum 3 devis vous seront édités auprès de nos partenaires afin que vous puissiez choisir le mieux adaptés pour vous.</p>
+
+                    <h3 class="section-title text-start mt-5" style="font-size: 1.8rem; border-bottom: none;">Je souhaite protéger mon véhicule, quelle est la meilleure formule à souscrire ?</h3>
+                    <p>Pour une assurance auto la **loi oblige d’être assuré au minimum pour votre Responsabilité Civile**. Lors d’un accident, cette garantie prend en charge les dommages corporels et matériels causés à des tiers par votre véhicule. Cette formule est appelée également **« GARANTIE AU TIERS »**.</p>
+                    <p>Cependant, selon votre profil pour renforcer votre contrat d'autres garanties vous serons proposé :</p>
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2">**-GARANTIE AU TIERS +** Assistance 0 km, Bris de Glace, Vol, Vandalisme, Incendie, Événements climatiques, Catastrophes Naturelles et Technologiques.</li>
+                        <li class="mb-2">**GARANTIE TOUS RISQUES** qui assure complètement votre véhicule.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container mb-5">
+        <div class="row">
+            <div class="col-12">
+                <blockquote class="blockquote p-4 bg-warning bg-opacity-10 border-start border-5 border-danger text-dark">
+                    <p class="mb-0"><strong>ATTENTION :</strong> L'article L.324-2 du code de la route dispose que la conduite sans **assurance** est un délit et peut être puni en tant que tel d'une amende de 3 750 €.</p>
+                </blockquote>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 text-center p-4" style="background-color: var(--fr-blue); border-radius: 10px;">
+                <h2 class="text-white mb-0" style="font-weight: 900;">APPELEZ-NOUS ! <i class="fas fa-phone-alt ms-3"></i> + 33 (0) 7 85 06 42 44</h2>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-logo">prestige assurance</div>
+                    <p>Votre partenaire de confiance pour toutes vos solutions d'assurance.</p>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-custom-blue w-100">Rappelle-moi !</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4>NOTRE CABINET</h4>
+                    <ul>
+                        <li><a href="#">À propos de Nous</a></li>
+                        <li><a href="#">Actualités</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4>ASSURANCE</h4>
+                    <ul>
+                        <li><a href="#">Particuliers</a></li>
+                        <li><a href="#">Professionnels</a></li>
+                        <li><a href="#">Carte Grise</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4>NOUS CONTACTER</h4>
+                    <ul>
+                        <li class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>9 rue Verdi, 06000 NICE</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+ 33 (0) 7 85 06 42 44</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>10h00 à 18h00<br>du Lundi au Vendredi</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 prestige assurance | All Rights Reserved
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkFade);
+            checkFade(); // Check on initial load
+        });
+    </script>
+</body>
+</html>

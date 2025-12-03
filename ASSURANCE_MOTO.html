@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prestige assurance - Assurance Moto / Scooter</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --fr-blue: rgba(32, 121, 55);
+            --fr-white: #ffffff;
+            --fr-red: black;
+            --dark-blue: black;
+            --bg-light: #f4f6f9;
+            --text-dark: #333;
+            --text-grey: #666;
+        }
+        body { font-family: 'Roboto', sans-serif; color: var(--text-dark); overflow-x: hidden; }
+        .top-flag-strip { height: 4px; background: linear-gradient(90deg, var(--fr-blue) 33%, var(--fr-white) 33%, var(--fr-white) 66%, var(--fr-red) 66%); }
+        .top-bar { background-color: #f8f9fa; font-size: 0.9rem; padding: 10px 0; }
+        .top-bar a { color: var(--text-dark); text-decoration: none; margin-right: 15px; transition: color 0.3s; }
+        .top-bar a:hover { color: var(--fr-blue); }
+        .btn-tous-produits { background-color: var(--fr-blue); color: white !important; padding: 5px 10px; border-radius: 5px; }
+        .top-phone { color: var(--fr-blue); font-weight: 700; }
+        .main-header { padding: 20px 0; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo-container { display: flex; align-items: center; }
+        .logo-img { width: 120px; height: auto; margin-right: 10px; }
+        .logo-text { font-size: 2rem; font-weight: 900; color: var(--fr-blue); line-height: 1; }
+        .logo-subtext { font-size: 0.8rem; color: var(--text-grey); }
+        .btn-custom-blue { background-color: var(--fr-blue); color: white; font-weight: 600; border: none; padding: 10px 20px; transition: all 0.3s; }
+        .btn-custom-blue:hover { background-color: var(--dark-blue); color: white; transform: translateY(-2px); }
+        .btn-custom-red { background-color: var(--fr-red); color: white; font-weight: 600; border: none; padding: 10px 20px; transition: all 0.3s; }
+        .btn-custom-red:hover { background-color: whitesmoke; color: black; border : solid black 2px; transform: translateY(-2px); }
+        .navbar-custom { background-color: var(--fr-blue); padding: 0; }
+        .navbar-custom .nav-link { color: white !important; font-weight: 600; text-transform: uppercase; padding: 15px 20px !important; transition: background-color 0.3s; }
+        .navbar-custom .nav-link:hover, .navbar-custom .nav-item.show .nav-link { background-color: rgba(0, 0, 0, 0.1); }
+        .dropdown-menu { border: none; border-radius: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .dropdown-item { padding: 10px 20px; font-weight: 500; }
+        .dropdown-item:hover { background-color: var(--bg-light); color: var(--fr-blue); }
+        .hero-section { position: relative; height: 600px; background: url('https://via.placeholder.com/1920x600?text=Moto+Image') no-repeat center center/cover; display: flex; align-items: center; color: white; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(32, 121, 55, 0.8), rgba(126, 172, 59, 0.6), rgba(162, 210, 50, 0.3)); }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-title { font-size: 3.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
+        .hero-subtitle { font-size: 1.2rem; margin-bottom: 30px; }
+        .contact-section { padding: 80px 0; background-color: var(--bg-light); }
+        .contact-form { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .form-control, .form-select { padding: 12px; border-radius: 5px; border: 1px solid #ced4da; margin-bottom: 20px; }
+        .devis-form h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 20px; }
+        .info-souscripteur { color: var(--fr-red); font-weight: 700; margin-top: 20px; margin-bottom: 15px; border-bottom: 2px solid var(--fr-red); display: inline-block; padding-bottom: 5px; }
+        .footer { background-color: #222; color: #bbb; padding: 80px 0 30px; }
+        .footer-logo { font-size: 1.8rem; font-weight: 900; color: white; margin-bottom: 20px; }
+        .footer h4 { color: white; font-weight: 700; margin-bottom: 25px; position: relative; padding-bottom: 10px; }
+        .footer h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 50px; height: 3px; background-color: var(--fr-red); }
+        .footer ul { list-style: none; padding: 0; }
+        .footer ul li { margin-bottom: 15px; }
+        .footer ul li a { color: #bbb; text-decoration: none; transition: color 0.3s; }
+        .footer ul li a:hover { color: white; }
+        .footer-contact-item { display: flex; align-items: flex-start; margin-bottom: 15px; }
+        .footer-contact-item i { color: var(--fr-red); margin-right: 10px; margin-top: 5px; }
+        .copyright { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #444; font-size: 0.9rem; }
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <div class="top-flag-strip"></div>
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="d-none d-md-block">
+                <a href="index.html">À PROPOS DE NOUS</a>
+                <a href="#">ACTUALITÉS</a>
+                <a href="index.html#products" class="btn-tous-produits">TOUS NOS PRODUITS</a>
+            </div>
+            <div class="d-flex align-items-center">
+                <i class="fas fa-phone-alt me-2 top-phone"></i>
+                <div><div class="top-phone">+ 33 7 85 06 42 44</div><small>Appelez-nous</small></div>
+            </div>
+        </div>
+    </div>
+    <header class="main-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo-container">
+                <img src="/prv/assets/logo.png" alt="prestige assurance" class="logo-img"> 
+                <div><div class="logo-text">prestige assurance</div><div class="logo-subtext">ASSURANCES TOUJOURS À VOS CÔTÉS</div></div>
+            </div>
+            <div class="d-flex gap-3">
+                <a href="#devis-section" class="btn btn-custom-red d-none d-sm-block">DEMANDEZ UN DEVIS</a>
+            </div>
+        </div>
+        <a style="margin:20px ;" href="#" class="btn btn-custom-blue">Payez en ligne</a>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <button style="margin: 10px;color: #ced4da;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Particulier</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                            <li><a class="dropdown-item" href="ASSURANCE_AUTO.html">Assurance Auto</a></li>
+                            <li><a class="dropdown-item" href="ASSURANCE_MOTO.html">Moto / Scooter</a></li>
+                            <li><a class="dropdown-item" href="ASSURANCE_HABITATION.html">Habitation</a></li>
+                            <li><a class="dropdown-item" href="ASSURANCE_SANTE.html">Santé</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Professionnel</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <li><a class="dropdown-item" href="PROFESSIONNEL_RC_PRO.html">RC Pro</a></li>
+                            <li><a class="dropdown-item" href="PROFESSIONNEL_MULTIRISQUE.html">Multirisque Pro</a></li>
+                            <li><a class="dropdown-item" href="PROFESSIONNEL_FLOTTE.html">Flotte Auto</a></li>
+                            <li><a class="dropdown-item" href="PROFESSIONNEL_SANTE.html">Santé Collective</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="CARTE_GRISE.html">Changement Carte Grise</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Nous Contacter</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section text-center">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="hero-title fade-in-up">ASSURANCE MOTO / SCOOTER</h1>
+                    <p class="hero-subtitle fade-in-up" style="font-size: 1.8rem; font-weight: 500;">
+                        Cyclo Scooter <= 50 cm3, Scooter > 50 cm3, Tricycle, Quad
+                    </p>
+                    <a href="#devis-section" class="btn btn-custom-red btn-lg fade-in-up">DEMANDEZ UN DEVIS GRATUIT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="devis-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 fade-in-up">
+                    <div class="contact-form devis-form p-5">
+                        <h2 class="text-start">DEVIS MOTO</h2>
+                        <p class="text-start">Remplissez le formulaire ci-dessous pour votre deux-roues.</p>
+                       <form action="https://formspree.io/f/xvgerngw" method="POST">
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <select class="form-select" required>
+                                        <option value="">Type de véhicule :*</option>
+                                        <option value="scooter50">Scooter 50cc</option>
+                                        <option value="moto">Moto</option>
+                                        <option value="scooter125">Scooter > 50cc</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" placeholder="Modèle" required>
+                                </div>
+                            </div>
+                            <h4 class="info-souscripteur">Vos Coordonnées</h4>
+                            <div class="row mt-3">
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="Nom*" required></div>
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="Prénom*" required></div>
+                            </div>
+                            <div class="row"><div class="col-12"><input type="email" class="form-control" placeholder="Email*" required></div></div>
+                            <div class="row"><div class="col-12"><input type="tel" class="form-control" placeholder="Téléphone Mobile"></div></div>
+                            <button type="submit" class="btn btn-custom-red w-100 btn-lg mt-3">ENVOYER</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-in-up">
+                    <h2 class="section-title text-start">Roulez en toute liberté</h2>
+                    <p class="mt-4">Que vous soyez motard passionné ou utilisateur urbain de scooter, nous avons l'offre qu'il vous faut.</p>
+                    <ul class="list-unstyled text-start fs-5">
+                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--fr-blue);"></i> Garantie du conducteur</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--fr-blue);"></i> Assistance 0km</li>
+                        <li class="mb-3"><i class="fas fa-check-circle me-2" style="color: var(--fr-blue);"></i> Équipement de protection inclus</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-logo">prestige assurance</div>
+                    <p>Votre partenaire de confiance.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4>NOTRE CABINET</h4>
+                    <ul>
+                         <li><a href="index.html">À propos de Nous</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4>ASSURANCE</h4>
+                    <ul>
+                        <li><a href="ASSURANCE_AUTO.html">Particuliers</a></li>
+                        <li><a href="PROFESSIONNEL_RC_PRO.html">Professionnels</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4>CONTACT</h4>
+                    <ul>
+                        <li class="footer-contact-item"><i class="fas fa-phone"></i><span>+ 33 (0) 7 85 06 42 44</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">© 2025 prestige assurance</div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/js/ASSURANCE_MOTO.js">
+     
+    </script>
+</body>
+</html>

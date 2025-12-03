@@ -1,0 +1,25 @@
+   :root { --fr-blue: rgba(32, 121, 55); --fr-white: #ffffff; --fr-red: black; --dark-blue: black; --bg-light: #f4f6f9; --text-dark: #333; --text-grey: #666; }
+        body { font-family: 'Roboto', sans-serif; color: var(--text-dark); overflow-x: hidden; }
+        .top-flag-strip { height: 4px; background: linear-gradient(90deg, var(--fr-blue) 33%, var(--fr-white) 33%, var(--fr-white) 66%, var(--fr-red) 66%); }
+        .top-bar { background-color: #f8f9fa; font-size: 0.9rem; padding: 10px 0; }
+        .top-bar a { color: var(--text-dark); text-decoration: none; margin-right: 15px; }
+        .btn-tous-produits { background-color: var(--fr-blue); color: white !important; padding: 5px 10px; border-radius: 5px; }
+        .top-phone { color: var(--fr-blue); font-weight: 700; }
+        .main-header { padding: 20px 0; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo-text { font-size: 2rem; font-weight: 900; color: var(--fr-blue); line-height: 1; }
+        .logo-subtext { font-size: 0.8rem; color: var(--text-grey); }
+        .btn-custom-blue { background-color: var(--fr-blue); color: white; font-weight: 600; border: none; padding: 10px 20px; transition: all 0.3s; }
+        .btn-custom-red { background-color: var(--fr-red); color: white; font-weight: 600; border: none; padding: 10px 20px; transition: all 0.3s; }
+        .navbar-custom { background-color: var(--fr-blue); padding: 0; }
+        .navbar-custom .nav-link { color: white !important; font-weight: 600; text-transform: uppercase; padding: 15px 20px !important; }
+        .hero-section { position: relative; height: 600px; background: url('https://via.placeholder.com/1920x600?text=Habitation') no-repeat center center/cover; display: flex; align-items: center; color: white; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(32, 121, 55, 0.8), rgba(126, 172, 59, 0.6), rgba(162, 210, 50, 0.3)); }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-title { font-size: 3.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
+        .contact-section { padding: 80px 0; background-color: var(--bg-light); }
+        .contact-form { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .form-control, .form-select { padding: 12px; border-radius: 5px; border: 1px solid #ced4da; margin-bottom: 20px; }
+        .info-souscripteur { color: var(--fr-red); font-weight: 700; margin-top: 20px; margin-bottom: 15px; border-bottom: 2px solid var(--fr-red); display: inline-block; }
+        .footer { background-color: #222; color: #bbb; padding: 80px 0 30px; }
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
